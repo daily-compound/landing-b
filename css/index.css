@@ -64,9 +64,11 @@ header{
 .hero-img-bg-grad{
     background: rgb(255,180,42);
     background: radial-gradient(ellipse at center, rgba(255,180,42,0.9) 0%, rgba(255,140,0,0.7) 30%, rgba(255,180,42,0.5) 60%, rgba(255,180,42,0.2) 100%);
-    filter: blur(80px);
-    opacity: 0.9;
+    /* filter: blur(80px); */
+    opacity: 1;
     pointer-events: none;
+    z-index: 5;
+    border: 2px solid red; /* 테스트용 */
 }
 
 #dashboard {
