@@ -205,3 +205,23 @@ header{
 }
 
 /* Removed responsive header styles - no longer needed */
+
+/* 기능 섹션 스타일 */
+.feature-item {
+    border-left: 4px solid #f8ab1c;
+    padding-left: 20px;
+}
+
+/* 모바일 반응형 스타일 */
+@media (max-width: 1023px) {
+    .mobile-center-text {
+        text-align: center;
+    }
+    .mobile-center-container {
+        justify-content: center;
+    }
+    .feature-item {
+        border-left: none;
+        padding-left: 0;
+    }
+}
