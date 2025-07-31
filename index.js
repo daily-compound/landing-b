@@ -89,3 +89,31 @@ sections.forEach((sec) => {
 
 
 })
+
+
+// ------------- Smooth Scroll for CTA buttons ---------------
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Get all smooth scroll links
+    const smoothScrollLinks = document.querySelectorAll('.smooth-scroll[href^="#"]')
+    
+    smoothScrollLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault()
+            
+            const targetId = this.getAttribute('href').substring(1)
+            const targetElement = document.getElementById(targetId)
+            
+            if (targetElement) {
+                // Smooth scroll to target with offset for header
+                const headerHeight = 80 // Adjust this value based on your header height
+                const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight
+                
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                })
+            }
+        })
+    })
+})
