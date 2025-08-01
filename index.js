@@ -101,6 +101,22 @@ document.addEventListener('DOMContentLoaded', function() {
         link.addEventListener('click', function(e) {
             e.preventDefault()
             
+            // Google Analytics Event Tracking
+            const buttonText = this.querySelector('span') ? this.querySelector('span').textContent.trim() : this.textContent.trim()
+            const buttonLocation = this.closest('header') ? 'header' : 'hero_section'
+            
+            // Send gtag event
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'cta_click', {
+                    'event_category': 'engagement',
+                    'event_label': buttonText,
+                    'button_location': buttonLocation,
+                    'custom_parameter': `${buttonLocation}_${buttonText}`
+                })
+                
+                console.log(`GA Event sent: CTA click - ${buttonText} (${buttonLocation})`)
+            }
+            
             const targetId = this.getAttribute('href').substring(1)
             const targetElement = document.getElementById(targetId)
             
